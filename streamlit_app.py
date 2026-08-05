@@ -70,7 +70,7 @@ if ingredients_list:
                 timeout=10
             )
              if smoothiefroot_response.status_code == 404:
-            st.info(
+                 st.info(
                 f"Nutrition information is not available for {fruit_chosen}."
             )
             continue
