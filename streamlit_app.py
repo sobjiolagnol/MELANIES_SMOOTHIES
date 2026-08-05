@@ -1,5 +1,6 @@
 # Import Python packages
 import streamlit as st
+import requests  
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -17,6 +18,19 @@ st.write("The name on your Smoothie will be:", name_on_order)
 # Connect to Snowflake using Streamlit Secrets
 cnx = st.connection("snowflake")
 session = cnx.session()
+
+
+# ================================
+# AJOUTE LE CODE ICI
+# ================================
+
+smoothiefroot_response = requests.get(
+    "https://my.smoothiefroot.com/api/fruit/watermelon"
+)
+
+st.text(smoothiefroot_response)
+
+
 
 # Get the available fruit names
 fruit_rows = (
@@ -60,6 +74,5 @@ if ingredients_list:
             )
 
 
-import requests  
-smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
-st.text(smoothiefroot_response)
+
+
