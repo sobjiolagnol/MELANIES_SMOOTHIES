@@ -69,6 +69,11 @@ if ingredients_list:
                 f"https://my.smoothiefroot.com/api/fruit/{search_on}",
                 timeout=10
             )
+             if smoothiefroot_response.status_code == 404:
+            st.info(
+                f"Nutrition information is not available for {fruit_chosen}."
+            )
+            continue
 
             smoothiefroot_response.raise_for_status()
 
