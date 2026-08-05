@@ -20,16 +20,6 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 
-# ================================
-# AJOUTE LE CODE ICI
-# ================================
-
-smoothiefroot_response = requests.get(
-    "https://my.smoothiefroot.com/api/fruit/watermelon"
-)
-
-st.text(smoothiefroot_response)
-
 
 
 # Get the available fruit names
@@ -72,6 +62,16 @@ if ingredients_list:
                 f"Your Smoothie is ordered, {name_on_order.strip()}!",
                 icon="✅"
             )
+# ================================
+# AJOUTE LE CODE ICI
+# ================================
+
+smoothiefroot_response = requests.get(
+    "https://my.smoothiefroot.com/api/fruit/watermelon"
+)
+
+st.text(smoothiefroot_response)
+
 
 
 
